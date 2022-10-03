@@ -1,4 +1,5 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -10,7 +11,18 @@
     <a href="/" class="logo">Мой магазин</a>
 </div>
 <div id="subheader">
-    <div class="cart">Корзина пустая.</div>
+    <div class="cart">
+        {%with total_items=cart|lenght%}
+        {%if cart|lenght > 0%}
+        В корзине
+        <a href="{% url 'cart:cart_detail'%}">
+            {{total_items}} шт ,${{cart.get_total_price}}
+        </a>
+        {%else%}
+        Корзина пустая
+        {%endif%}
+        {%endwith%}
+    </div>
 </div>
 <div id="content">
     {% block content %}{% endblock %}
