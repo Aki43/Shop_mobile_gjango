@@ -17,7 +17,6 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('myshop:product_list_by_category', args=[self.slug])
 
-
 class Product(models.Model):
     category = models.ForeignKey(Category,
                                  related_name='products',
@@ -36,10 +35,10 @@ class Product(models.Model):
         ordering = ('name',)
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
-        index_together = (('id', 'slug'),)
+        index_together = (('id', 'slug'), )
 
     def __str__(self):
-        return self.name
+        return  self.name
 
     def get_absolute_url(self):
         return reverse('myshop:product_detail', args=[self.id, self.slug])

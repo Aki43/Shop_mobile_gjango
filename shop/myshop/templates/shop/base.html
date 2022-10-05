@@ -12,8 +12,8 @@
 </div>
 <div id="subheader">
     <div class="cart">
-        {%with total_items=cart|lenght%}
-        {%if cart|lenght > 0%}
+        {% with total_items=cart|length %}
+        {% if cart|length > 0 %}
         В корзине
         <a href="{% url 'cart:cart_detail'%}">
             {{total_items}} шт ,${{cart.get_total_price}}

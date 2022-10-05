@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from shop.cart.forms import CartAddProductForm
+from cart.forms import CartAddProductForm
 from .models import Category, Product
 
 
